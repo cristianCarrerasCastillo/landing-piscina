@@ -15,7 +15,7 @@
 
   <section>
     <h2>🎉 Lo que ofrecemos</h2>
-    <!-- img src="imagenes/piscina.jpg" alt="Piscina 17x6 metros" -->
+    <img src="media/piscina.webp" alt="Piscina 17x6 metros" class="vertical-crop">
     <ul>
       <li>Piscina de 17 x 6 mts (prof. 80 cm a 1,80 mts)</li>
       <li>Recinto cerrado y seguro</li>
@@ -26,21 +26,18 @@
       <li>Animales: ovejas, gallinas, pollos y perros</li>
     </ul>
 
-    <!-- img src="imagenes/quincho.jpg" alt="Quincho equipado" -->
+    <img src="media/quincho-general.webp" alt="Quincho equipado" class="vertical-crop">
 
     <h2>📍 Ubicación</h2>
     <a href="https://maps.app.goo.gl/bYqn19esMwVBY6f3A" >Avda. Valparaíso s/n, km 13 – A 200 mts de Bollenar, Melipilla</a>
-
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1119.25566383568!2d-71.21301190095147!3d-33.57520703735562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2scl!4v1752460260453!5m2!1ses!2scl"
-    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
     <h2>🧒 Juegos y Naturaleza</h2>
     <ul>
         <li>Zona de juegos infantiles</li>
         <li>Áreas verdes para disfrutar al aire libre</li>
         <li>Animales en el recinto: ovejas, gallinas, pollos</li>
-    <!-- img src="imagenes/juegos.jpg" alt="Zona de juegos y áreas verdes" -->
-    <!-- img src="imagenes/animales.jpg" alt="Ovejas y gallinas en el recinto" -->
+    <img src="media/casa-arbol.webp" alt="Zona de juegos y áreas verdes" class="vertical-crop2">
+    <img src="media/taca-taca.webp" alt="Ovejas y gallinas en el recinto" class="vertical-crop2">
 
     <h2>💰 Valor</h2>
     <p><strong>$400.000 por curso</strong> (hasta 100 personas – exclusivo para colegios)</p>
@@ -55,45 +52,28 @@
       <li><strong>Correo:</strong> <a href="mailto:miriam.castillo.seguel@gmail.com">miriam.castillo.seguel@gmail.com</a></li>
     </ul>
 
-    <!-- h2 style="margin-top: 50px;">📸 Galería de fotos</h2>
-    <div class="carousel">
-      <img src="imagenes/foto1.jpg" class="active" alt="Foto 1 del recinto">
-      <img src="imagenes/foto2.jpg" alt="Foto 2 del recinto">
-      <img src="imagenes/foto3.jpg" alt="Foto 3 del recinto">
-      <img src="imagenes/foto4.jpg" alt="Foto 4 del recinto">
+    <h2 style="margin-top: 50px;">📸 Galería de fotos</h2>
+    <div class="gallery-scroll">
+      <img src="media/piscina.webp" class="active" alt="piscina del recinto" >
+      <img src="media/hamacas.webp" alt="Foto de hamacas del recinto" >
+      <img src="media/quincho.webp" alt="Foto del quincho del recinto" >
+      <img src="media/casa-arbol.webp" alt="Foto de la casa del arbol del recinto" >
+      <img src="media/cocina3.webp" alt="Foto de la cocina del recinto" >
+      <img src="media/quincho-general.webp" alt="Foto general del quincho del recinto" >
+      <img src="media/bancas.webp" alt="Foto de bancas del recinto" >
+      <img src="media/baño2.webp" alt="Foto baños del recinto">
     </div>
-    <div class="carousel-buttons">
-      <button onclick="changeSlide(-1)">Anterior</button>
-      <button onclick="changeSlide(1)">Siguiente</button>
-    </div -->
+
 
     <div class="cta">
       <p>📲 ¡Reserva ahora y asegura tu fecha!</p>
     </div>
-
 
   </section>
 
   <footer>
     &copy; 2025 Piscina y Quincho - Melipilla. Todos los derechos reservados.
   </footer>
-
-  <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel img');
-
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (i === index) slide.classList.add('active');
-      });
-    }
-
-    function changeSlide(step) {
-      currentSlide = (currentSlide + step + slides.length) % slides.length;
-      showSlide(currentSlide);
-    }
-  </script>
-
+  
 </body>
 </html>
