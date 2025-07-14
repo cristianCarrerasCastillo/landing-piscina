@@ -54,26 +54,78 @@
 
     <h2 style="margin-top: 50px;">📸 Galería de fotos</h2>
     <div class="gallery-scroll">
-      <img src="media/piscina.webp" class="active" alt="piscina del recinto" >
-      <img src="media/hamacas.webp" alt="Foto de hamacas del recinto" >
-      <img src="media/quincho.webp" alt="Foto del quincho del recinto" >
-      <img src="media/casa-arbol.webp" alt="Foto de la casa del arbol del recinto" >
-      <img src="media/cocina3.webp" alt="Foto de la cocina del recinto" >
-      <img src="media/quincho-general.webp" alt="Foto general del quincho del recinto" >
-      <img src="media/bancas.webp" alt="Foto de bancas del recinto" >
-      <img src="media/baño2.webp" alt="Foto baños del recinto">
+      <img src="media/piscina.webp" alt="Piscina" class="gallery-item" data-img="media/piscina.webp">
+      <img src="media/hamacas.webp" alt="Hamacas" class="gallery-item" data-img="media/hamacas.webp">
+      <img src="media/quincho.webp" alt="Quincho" class="gallery-item" data-img="media/quincho.webp">
+      <img src="media/casa-arbol.webp" alt="Casa del árbol" class="gallery-item" data-img="media/casa-arbol.webp">
+      <img src="media/cocina3.webp" alt="Cocina" class="gallery-item" data-img="media/cocina3.webp">
+      <img src="media/quincho-general.webp" alt="Quincho general" class="gallery-item" data-img="media/quincho-general.webp">
+      <img src="media/bancas.webp" alt="Bancas" class="gallery-item" data-img="media/bancas.webp">
+      <img src="media/baño2.webp" alt="Baños" class="gallery-item" data-img="media/baño2.webp">
     </div>
 
+  
 
-    <div class="cta">
-      <p>📲 ¡Reserva ahora y asegura tu fecha!</p>
-    </div>
+  <div class="cta">
+    <p>📲 ¡Reserva ahora y asegura tu fecha!</p>
+  </div>
 
   </section>
 
   <footer>
     &copy; 2025 Piscina y Quincho - Melipilla. Todos los derechos reservados.
   </footer>
-  
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close" onclick="closeLightbox(event)">✕</span>
+    <button class="lightbox-prev" onclick="changeImage(-1, event)">←</button>
+    <img id="lightbox-img" src="" alt="Imagen ampliada">
+    <button class="lightbox-next" onclick="changeImage(1, event)">→</button>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    let currentIndex = 0;
+
+    galleryItems.forEach((item, index) => {
+      item.addEventListener('click', e => {
+        e.preventDefault();
+        currentIndex = index;
+        openLightbox(item.dataset.img);
+      });
+    });
+
+    function openLightbox(src) {
+      lightboxImg.src = src;
+      lightbox.style.display = 'flex';
+    }
+
+    function closeLightbox(e) {
+      if (e) e.stopPropagation();
+      lightbox.style.display = 'none';
+      lightboxImg.src = "";
+    }
+
+    function changeImage(direction, e) {
+      e.stopPropagation();
+      currentIndex = (currentIndex + direction + galleryItems.length) % galleryItems.length;
+      const newImg = galleryItems[currentIndex].dataset.img;
+      openLightbox(newImg);
+    }
+
+    // Opcional: cerrar con ESC
+    document.addEventListener("keydown", (e) => {
+      if (lightbox.style.display === "flex") {
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight") changeImage(1, e);
+        if (e.key === "ArrowLeft") changeImage(-1, e);
+      }
+    });
+  </script>
+
+
 </body>
 </html>

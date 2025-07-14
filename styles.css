@@ -72,14 +72,71 @@ body {
     scroll-snap-type: x mandatory;
   }
   
-  .gallery-scroll img {
-    flex: 0 0 auto;
-    height: 200px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 8px;
-    scroll-snap-align: start;
-  }
+.gallery-scroll img {
+  flex: 0 0 auto;
+  height: 200px;
+  width: auto;
+  max-width: 140px; /* evita que sean demasiado anchas en pantallas pequeñas */
+  aspect-ratio: 3/4; /* fuerza relación vertical tipo retrato */
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  scroll-snap-align: start;
+}
+
+
+  /* Lightbox base */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+/* Botón de cerrar */
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.lightbox button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.lightbox-prev {
+  left: 20px;
+}
+
+.lightbox-next {
+  right: 20px;
+}
 
   img {
     max-width: 100%;
